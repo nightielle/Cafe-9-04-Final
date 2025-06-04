@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Reservations - Café 9:04</title>
+    <link rel="stylesheet" href="assets/css/cafe.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="assets/js/js.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/img/logo.png" id="logoimg" alt="Café 9:04 Logo">
+                <div class="logo-text">
+                    <h1><span class="light">C A F</span> <span class="bold">E</span></h1>
+                    <h1><span class="light">9 :</span> <span class="bold">0 4</span></h1>
+                    <strong class="bottom-info">What time is it? It's Cafe 9:04 Time Well Spent</strong>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!--NAVBAR-->
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="INDEX.html">HOME</a></li>
+                    <li><a href="ABOUT.html">ABOUT</a></li>
+                    <li><a href="MENU.html">MENU</a></li>
+                    <li class="has-dropdown">
+                        <a href="SERVICES.html" class="dropdown-toggle">SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="STORE.html">STORE</a></li>
+                            <li><a href="RESERVATION.html">RESERVATION</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="GALLERY.html">GALLERY</a></li>
+                    <li><a href="EVENTS.html">EVENTS</a></li>
+                    <li><a href="ORDER.html">ORDER</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Spacer  -->
+    <div id="header-spacer"></div>
+    <section class="page-header">
+        <h1>RESERVATION</h1>
+        <div class="breadcrumb">
+            <a href="INDEX.html">Home</a> &gt; <a href="SERVICES.html">Services</a> &gt; <span>Reservation</span>
+        </div>
+    </section>
+
+    <div class="reservation-form">
+        <form action="submit_reservation.php" method="post" id="reservationForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Juan Dela Cruz" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="e.g. juan@example.com" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. 0917-123-4567" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="date">Select a Date:</label>
+                <input type="text" id="time" name="time" required placeholder="Select time">
+            </div>
+    
+            <div class="form-group">
+                <label for="time">Select a Time:</label>
+                <select id="time" name="time" required>
+                    <option value="">-- Choose a time --</option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                    <option value="18:00">6:00 PM</option>
+                    <option value="19:00">7:00 PM</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="guests">Guests:</label>
+                <select id="guests" name="guests" required>
+                    <option value="">-- Select guests --</option>
+                    <option value="1">1 person</option>
+                    <option value="2">2 people</option>
+                    <option value="3">3 people</option>
+                    <option value="4">4 people</option>
+                    <option value="5">5 people</option>
+                    <option value="6">6 people</option>
+                    <option value="7">7 people</option>
+                    <option value="8">8 people</option>
+                    <option value="9">9 people</option>
+                    <option value="10">10+ (Group Booking)</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="notes">Special Requests (Optional):</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="e.g. High chair, near window, birthday celebration..."></textarea>
+            </div>
+    
+            <button type="submit" class="submit-btn">Check Availability</button>
+        </form>
+    </div>
+<!--FOOTER-->
+    <section class="instagram-feed">
+        <footer>
+            <div class="footer-links">
+                <a href="INDEX.html">HOME</a>
+                <a href="ABOUT.html">ABOUT</a>
+                <a href="#">MENUS</a>
+                <a href="SERVICES.html">SERVICES</a>
+                <a href="#">GALLERY</a>
+                <a href="EVENTS.html">EVENTS</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/cafe904.iloilo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">INSTAGRAM</a>
+                <a href="https://www.facebook.com/Cafe904">FACEBOOK</a>
+            </div>
+            <p>Open Monday - Sunday</p>
+            <p>2F Ana Ros Bldg, Simeon LEdesma St, Jaro, Iloilo City, 5000 Iloilo</p>
+            <p>&copy; 2025 Café 9:04. All Rights Reserved.</p>
+        </footer>
+        </section>
+        <!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#date", {
+        minDate: "today",
+        dateFormat: "Y-m-d",
+    });
+    //Flatpickr for time too
+    flatpickr("#time", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+        time_24hr: false
+    });
+</script>
+        </body>
+    </html>
+</html>

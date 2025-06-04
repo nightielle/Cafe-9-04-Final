@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Café 9:04</title>
+    <link rel="stylesheet" href="assets/css/cafe.css">
+    <script src="assets/js/js.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/img/logo.png" id="logoimg" alt="Café 9:04 Logo">
+                <div class="logo-text">
+                    <h1><span class="light">C A F</span> <span class="bold">E</span></h1>
+                    <h1><span class="light">9 :</span> <span class="bold">0 4</span></h1>
+                    <strong class="bottom-info">What time is it? It's Cafe 9:04 Time Well Spent</strong>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!--NAVIGATION BAR-->
+            <nav>
+                <ul id="nav-menu">
+                  <li class="auth-nav-item"><a href="#" id="authTrigger">LOG IN / SIGN UP</a></li>
+                    <li><a href="INDEX.html">HOME</a></li>
+                    <li><a href="ABOUT.html">ABOUT</a></li>
+                    <li><a href="MENU.html">MENU</a></li>
+                    <li class="has-dropdown">
+                        <a href="SERVICES.html" class="dropdown-toggle">SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="STORE.html">STORE</a></li>
+                            <li><a href="RESERVATION.html">RESERVATION</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="GALLERY.html">GALLERY</a></li>
+                    <li><a href="EVENTS.html">EVENTS</a></li>
+                    <li><a href="ORDER.html">ORDER</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Spacer  -->
+    <div id="header-spacer"></div>
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-item large">
+                <img src="assets/img/CAFE ENTRANCE.jpg" alt="Cafe Entrance">
+                <span class="overlay-text">CAFE 9:04</span>
+            </div>
+            <div class="hero-item">
+                <img src="assets/img/About.jpg" alt="About"> ">
+                <span class="overlay-text">IS ALL ABOUT</span>
+            </div>
+            <div class="hero-item">
+                <img src="assets/img/Cafe Entrance Main.jpg" alt="ABOUT">
+                <span class="overlay-text">THE LOVE FOR COFFEE</span>
+            </div>
+        </div>
+    </section>
+    <!--PREVIEW-->
+    <section class="menu-preview">
+        <h2>Current Menu Highlights</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>ALL DAY BREAKFAST</h3>
+            </div>
+            <div class="menu-item">
+                <h3>RICE BOWLS</h3>
+            </div>
+            <div class="menu-item">
+                <h3>PASTA FOR SHARING</h3>
+            </div>
+            <div class="menu-item">
+                <h3>SANDWICHES FOR SHARING</h3>
+            </div>
+            <div class="menu-item">
+                <h3>PIZZA FOR SHARING</h3>
+            </div>
+            <div class="menu-item">
+                <h3>NACHOS AND MORE</h3>
+            </div>
+            <div class="menu-item">
+                <h3>CLASSIC COFFEE</h3>
+            </div>
+            <div class="menu-item">
+                <h3>CRAFTED BLENDS</h3>
+            </div>
+            <div class="menu-item">
+                <h3>MILK BASED</h3>
+            </div>
+            <div class="menu-item">
+                <h3>FRESH OPTIONS</h3>
+            </div>
+            <div class="menu-item">
+                <h3>FRAPPE</h3>
+            </div>
+            <div class="menu-item">
+                <h3>SWEET AND TEA</h3>
+            </div>
+        </div>
+    </section>
+    <section class="instagram-feed">
+        <!-- FOOTER-->
+    <footer>
+        <div class="footer-links">
+            <a href="INDEX.html">HOME</a>
+            <a href="ABOUT.html">ABOUT</a>
+            <a href="#">MENUS</a>
+            <a href="SERVICES.html">SERVICES</a>
+            <a href="#">GALLERY</a>
+            <a href="EVENTS.html">EVENTS</a>
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/cafe904.iloilo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">INSTAGRAM</a>
+            <a href="https://www.facebook.com/Cafe904">FACEBOOK</a>
+        </div>
+        <p>Open Monday - Sunday</p>
+        <p>2F Ana Ros Bldg, Simeon LEdesma St, Jaro, Iloilo City, 5000 Iloilo</p>
+        <p>&copy; 2025 Café 9:04. All Rights Reserved.</p>
+    </footer>
+<!--LOGIN/SIGN up USER&ADMIN-->
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-container">
+            <span class="close-btn" id="closeAuthOverlay">&times;</span>
+            
+            <!-- Complete Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h2>Welcome Back!</h2>
+                <div class="form-group">
+                    <label for="loginEmail">Email or Username</label>
+                    <input type="text" id="loginEmail" name="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-button">Log In</button>
+                <a href="#" class="form-switch-link" data-form="signupForm">Don't have an account? Sign Up</a>
+                <a href="#" class="form-switch-link" data-form="adminLoginForm">Admin Log In</a>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signupForm" class="auth-form">
+                <h2>Create Account</h2>
+                <div class="form-group">
+                    <label for="signupFullName">Full Name</label>
+                    <input type="text" id="signupFullName" name="signupFullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" name="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" name="signupConfirmPassword" required>
+                </div>
+                <button type="submit" class="auth-button">Sign Up</button>
+                <a href="#" class="form-switch-link" data-form="loginForm">Already have an account? Log In</a>
+            </form>
+
+            <!-- Admin Login Form -->
+            <form id="adminLoginForm" class="auth-form">
+                <h2>Admin Access</h2>
+                <div class="form-group">
+                    <label for="adminLoginEmail">Admin Email or Username</label>
+                    <input type="text" id="adminLoginEmail" name="adminLoginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminLoginPassword">Admin Password</label>
+                    <input type="password" id="adminLoginPassword" name="adminLoginPassword" required>
+                </div>
+                <button type="submit" class="auth-button">Admin Log In</button>
+                <a href="#" class="form-switch-link" data-form="loginForm">User Log In</a>
+            </form>
+        </div>
+    </div>
+    
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const authOverlay = document.getElementById('authOverlay');
+    const authTrigger = document.getElementById('authTrigger');
+    const closeAuthOverlay = document.getElementById('closeAuthOverlay');
+    const forms = document.querySelectorAll('.auth-form');
+    const switchLinks = document.querySelectorAll('.form-switch-link');
+
+    function showOverlay() {
+        authOverlay.style.display = 'flex';
+        document.body.classList.add('auth-overlay-active');
+        switchForm('loginForm');
+    }
+
+    function hideOverlay() {
+        authOverlay.style.display = 'none';
+        document.body.classList.remove('auth-overlay-active');
+    }
+
+    function switchForm(formIdToShow) {
+        forms.forEach(form => {
+            form.classList.toggle('active', form.id === formIdToShow);
+        });
+    }
+
+    if (authTrigger) {
+        authTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            showOverlay();
+        });
+    }
+
+    if (closeAuthOverlay) {
+        closeAuthOverlay.addEventListener('click', hideOverlay);
+        authOverlay.addEventListener('click', function(event) {
+            if (event.target === authOverlay) hideOverlay();
+        });
+    }
+
+    switchLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            switchForm(this.dataset.form);
+        });
+    });
+
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formId = this.id;
+
+            if (formId === 'loginForm') {
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                if (!email || !password) return alert('Please fill in all fields');
+
+                sessionStorage.setItem('userLoggedIn', 'true');
+                sessionStorage.setItem('userEmail', email);
+                window.location.href = 'ORDER.html';
+
+            } else if (formId === 'signupForm') {
+                const email = document.getElementById('signupEmail').value;
+                const password = document.getElementById('signupPassword').value;
+                const confirmPassword = document.getElementById('signupConfirmPassword').value;
+                if (password !== confirmPassword) return alert('Passwords do not match');
+
+                sessionStorage.setItem('userLoggedIn', 'true');
+                sessionStorage.setItem('userEmail', email);
+                alert('Account created successfully!');
+                window.location.href = 'ORDER.html';
+
+            } else if (formId === 'adminLoginForm') {
+                const adminEmail = document.getElementById('adminLoginEmail').value;
+                const adminPassword = document.getElementById('adminLoginPassword').value;
+                if (!adminEmail || !adminPassword) return alert('Please fill in all fields');
+
+                sessionStorage.setItem('adminLoggedIn', 'true');
+                sessionStorage.setItem('adminEmail', adminEmail);
+                window.location.href = 'ORDER_Admin.html';
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

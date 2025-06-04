@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Café 9:04</title>
+    <link rel="stylesheet" href="assets/css/cafe.css">
+</head>
+<body>
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/img/logo.png" id="logoimg" alt="Café 9:04 Logo">
+                <div class="logo-text">
+                    <h1><span class="light">C A F</span> <span class="bold">E</span></h1>
+                    <h1><span class="light">9 :</span> <span class="bold">0 4</span></h1>
+                    <strong class="bottom-info">What time is it? It's Cafe 9:04 Time Well Spent</strong>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="INDEX.html">HOME</a></li>
+                    <li><a href="ABOUT.html">ABOUT</a></li>
+                    <li><a href="MENU.html">MENU</a></li>
+                    <li class="has-dropdown">
+                        <a href="SERVICES.html" class="dropdown-toggle">SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="STORE.html">STORE</a></li>
+                            <li><a href="RESERVATION.html">RESERVATION</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="GALLERY.html">GALLERY</a></li>
+                    <li><a href="EVENTS.html">EVENTS</a></li>
+                    <li><a href="ORDER.html">ORDER</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="header-spacer"></div>
+
+<div class="header-container">
+    <div class="logo">
+        <div class="logo-text">
+            <h1><span class="bold">CAFE</span> <span class="light">MENU</span></h1>
+        </div>
+    </div>
+</div>
+<button id="admin-toggle" style="margin: 20px;">Admin Panel</button>
+<div id="admin-panel" style="display: none; padding: 10px; border: 1px solid #ccc;">
+    <h3>Add / Edit Menu Item</h3>
+    <form id="admin-form">
+        <label>Category:
+            <select id="admin-category">
+                <!-- Filled dynamically -->
+            </select>
+        </label><br>
+        <label>Name: <input type="text" id="admin-name" required></label><br>
+        <label>Description: <input type="text" id="admin-description"></label><br>
+        <label>Price: <input type="number" id="admin-price" required></label><br>
+        <button type="submit">Save Item</button>
+    </form>
+
+    <h3>Items per Category</h3>
+    <div id="admin-items-list"></div>
+</div>
+
+    <div class="container">
+        <div class="menu-container">
+            <div class="menu-sidebar">
+                <h2>Categories</h2>
+                <button class="category-button" data-category="rice-bowls">Rice Bowls</button>
+                <button class="category-button" data-category="pasta">Pasta</button>
+                <button class="category-button" data-category="sandwiches">Sandwiches</button>
+                <button class="category-button" data-category="pizza">Pizza</button>
+                <button class="category-button" data-category="nachos">Nachos and More</button>
+                <button class="category-button" data-category="extras">Extras</button>
+                <button class="category-button" data-category="classic-coffee">Classic Coffee</button>
+                <button class="category-button" data-category="crafted-blends">Crafted Blends</button>
+                <button class="category-button" data-category="milk-based">Milk Based</button>
+                <button class="category-button" data-category="fresh-options">Fresh Options</button>
+                <button class="category-button" data-category="frappe-coffee">Frappe Coffee</button>
+                <button class="category-button" data-category="frappe-cream">Frappe Cream</button>
+                <button class="category-button" data-category="sweet-tea">Sweet and Tea</button>
+                <button class="category-button" data-category="rock-salt">Rock Salt & Cheese</button>
+                <button class="category-button" data-category="ice-cream">Ice Cream</button>
+            </div>
+
+            <div class="menu-content"></div>
+        </div>
+
+        <div class="cart-container">
+            <h2>Your Order</h2>
+            <div id="cart-items">
+                <div class="empty-cart-message">Your cart is empty</div>
+            </div>
+            <div class="cart-summary">
+                
+                <div class="cart-total">Total: <span id="total-value">₱0.00</span>
+                </div>
+                
+                <button class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+<div id="checkout-popup" style="display: none;" class="checkout-popup">
+    <h2>Complete Your Order</h2>
+    <form id="checkoutForm">
+        <label>Full Name</label>
+        <input type="text" name="fullName" required>
+
+        <label>Phone Number</label>
+        <input type="tel" name="phoneNumber" required>
+
+        <label>Delivery Address</label>
+        <input type="text" name="deliveryAddress" required>
+
+        <label>Delivery Instructions (Optional)</label>
+        <textarea name="deliveryInstructions"></textarea>
+
+        <h3>Payment</h3>
+        <label><input type="radio" name="paymentMethod" value="Cash on Delivery" required> 💵 Cash on Delivery</label><br>
+        <label><input type="radio" name="paymentMethod" value="GCash"> 💳 GCash</label><br>
+        <label><input type="radio" name="paymentMethod" value="Credit/Debit Card"> 💳 Credit/Debit Card</label><br>
+
+        <h3>Order Summary</h3>
+        <div id="popup-order-summary"></div>
+        <div>Subtotal: ₱<span id="popup-subtotal">0.00</span></div>
+        <div>Delivery Fee: ₱<span id="popup-delivery-fee">50.00</span></div>
+        <div><strong>Total Amount: ₱<span id="popup-total">0.00</span></strong></div>
+
+        <button type="submit">Confirm Order</button>
+    </form>
+</div>
+
+<div id="confirmation-message" style="display: none;" class="confirmation">
+    <h2>Order Confirmed ✅</h2>
+    <p>Thank you! Your order has been placed.</p>
+    <p>ETA: 30-45 minutes</p>
+    <p>Order Number: <span id="order-number"></span></p>
+    <a href="INDEX.html">← Back to Home</a>
+</div>
+
+    <script>
+        // Menu data structure for rendering the menu dynamically.
+        // Each key represents a category (e.g., "rice-bowls", "pasta"), containing:
+        // - title: The display name of the category.
+        // - description: A brief description of the category (optional).
+        // - items: An array of menu items, where each item includes:
+        //   - name: The name of the menu item.
+        //   - description: A detailed description of the item (optional).
+        //   - price: The base price of the item.
+        //   - options: An array of customization options (optional), where each option includes:
+        //     - name: The name of the option (e.g., "size", "milk").
+        //     - options: An array of possible values for the option.
+        //     - additionalCost: An object mapping each option value to its additional cost.
+        const menuData = {
+            "rice-bowls": {
+                title: "Rice Bowls",
+                description: "INCLUDES: Garlic Rice, Egg and Upgrade to regular drink of choice for Php 79",
+                items: [
+                    {
+                        name: "Burger Steak",
+                        description: "Prepared by a Japanese mother using her family's own recipe from Japan. Made with original mushroom sauce and surprise inside.",
+                        price: 189,
+                        options: []
+                    },
+                    {
+                        name: "Chicken Adobo",
+                        description: "Choice chicken cut cooked following a family recipe from a town in Central Iloilo",
+                        price: 189,
+                        options: []
+                    },
+                    {
+                        name: "Pork Adobo",
+                        description: "Premium pork used in a homemade recipe",
+                        price: 189,
+                        options: []
+                    },
+                    {
+                        name: "Chicken Bola-Bola",
+                        description: "4 pieces of homemade chicken balls in barbecue sauce",
+                        price: 189,
+                        options: []
+                    },
+                    {
+                        name: "Beef Tapa",
+                        description: "Pure beef in sukiyaki cut marinated to your palates delight",
+                        price: 199,
+                        options: []
+                    }
+                ]
+            },
+            "pasta": {
+                title: "Pasta",
+                description: "For sharing. INCLUDES: 150 grams of pasta, homemade sauces, cheese and toasted bread",
+                items: [
+                    {
+                        name: "Malunggay Garlic Parmesan",
+                        price: 189,
+                        options: []
+                    },
+                    {
+                        name: "Gourmet Tuyo Pasta",
+                        price: 189,
+                        options: []
+                    },
+                    {
+                        name: "Hungarian Sausage Spaghetti",
+                        price: 189,
+                        options: []
+                    },
+                    {
+                        name: "Cheesy Marinara w/ Chicken Balls",
+                        price: 199,
+                        options: []
+                    },
+                    {
+                        name: "Spicy Chorizo Linguine",
+                        price: 199,
+                        options: []
+                    },
+                    {
+                        name: "Seafood Marinara",
+                        price: 209,
+                        options: []
+                    },
+                    {
+                        name: "4 Cheese Bacon Penne",
+                        price: 219,
+                        options: []
+                    }
+                ]
+            },
+            "sandwiches": {
+                title: "Sandwiches",
+                description: "For sharing. INCLUDES: Premium whole wheat loaf or baguette with nachos on the side",
+                items: [
+                    {
+                        name: "Wheat Bun Burger",
+                        price: 179,
+                        options: []
+                    },
+                    {
+                        name: "Kogi Spamwich",
+                        description: "Original spam and kimchi in between 2 pieces of baguette",
+                        price: 209,
+                        options: []
+                    },
+                    {
+                        name: "Mix Sando Sliders",
+                        description: "Sampler of Kogi Spamwich, D Club and Tuna Mango Cucumber",
+                        price: 199,
+                        options: []
+                    },
+                    {
+                        name: "Tuna Mango Cucumber",
+                        description: "Original tuna spread recipe with mango and cucumber on whole wheat loaf",
+                        price: 199,
+                        options: []
+                    },
+                    {
+                        name: "Pork Hamwich",
+                        description: "Homemade premium pork ham cured without extenders between 2 jumbo pandesal with nachos and dip on the side",
+                        price: 219,
+                        options: []
+                    },
+                    {
+                        name: "904 D'Club",
+                        description: "Our version of a club sandwich",
+                        price: 219,
+                        options: []
+                    }
+                ]
+            },
+            "pizza": {
+                title: "Pizza",
+                description: "For sharing. INCLUDES: 8 slices on a 12-inch plate",
+                items: [
+                    {
+                        name: "2in1 Hawaiian and Sausage with Mushroom",
+                        price: 369,
+                        options: []
+                    },
+                    {
+                        name: "2in1 Vegetarian and All Meat",
+                        price: 369,
+                        options: []
+                    },
+                    {
+                        name: "Creamy Spinach",
+                        description: "Keto dough and Sauce",
+                        price: 369,
+                        options: []
+                    },
+                    {
+                        name: "Tuyo and Tomatoes",
+                        description: "Homemade Gourmet tuyo with tomatoes",
+                        price: 369,
+                        options: []
+                    }
+                ]
+            },
+            "nachos": {
+                title: "Nachos and More",
+                description: "For sharing",
+                items: [
+                    {
+                        name: "Nachos Overload",
+                        description: "Nachos with meaty and creamy sauce topped with cucumber, tomatoes and lettuce",
+                        price: 199,
+                        options: []
+                    },
+                    {
+                        name: "Nachos in Creamy Spinach dip",
+                        description: "Nachos for non-meat eaters",
+                        price: 149,
+                        options: []
+                    },
+                    {
+                        name: "Pancit Molo",
+                        description: "500 liter soup of homemade molo balls",
+                        price: 139,
+                        options: []
+                    },
+                    {
+                        name: "Garden Salad Bacon and Almonds",
+                        price: 159,
+                        options: []
+                    },
+                    {
+                        name: "Garden Salad Tuna Mango and Chia",
+                        price: 159,
+                        options: []
+                    }
+                ]
+            },
+            "extras": {
+                title: "Extras",
+                items: [
+                    {
+                        name: "Nachos - 80grams",
+                        price: 79,
+                        options: []
+                    },
+                    {
+                        name: "Toasted Bread - 3 pcs",
+                        price: 49,
+                        options: []
+                    },
+                    {
+                        name: "Ranch",
+                        price: 19,
+                        options: []
+                    },
+                    {
+                        name: "Egg",
+                        price: 19,
+                        options: []
+                    }
+                ]
+            },
+            "classic-coffee": {
+                title: "Classic Coffee",
+                description: "Regular size: 16oz | Upsize: 22oz",
+                items: [
+                    {
+                        name: "Espresso",
+                        price: 69,
+                        options: [
+                            {
+                                name: "temperature",
+                                options: ["HOT", "ICED"],
+                                additionalCost: { "HOT": 0, "ICED": 0 }
+                            },
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+10)"],
+                                additionalCost: { "Regular": 0, "Upsize (+10)": 10 }
+                            },
+                            {
+                                name: "milk",
+                                options: ["No extra milk", "Regular milk (+19)", "Almond milk (+29)", "Oat milk (+49)"],
+                                additionalCost: { "No extra milk": 0, "Regular milk (+19)": 19, "Almond milk (+29)": 29, "Oat milk (+49)": 49 }
+                            }
+                        ]
+                    },
+                    {
+                        name: "Maple Cinnamon Frappe",
+                        price: 179,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+10)"]
+                            },
+                            {
+                                name: "milk",
+                                options: ["No extra milk", "Regular milk (+19)", "Almond milk (+29)", "Oat milk (+49)"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "frappe-cream": {
+                title: "Frappe (Ice-Blended Cream)",
+                description: "Regular size: 16oz | Upsize: 22oz",
+                items: [
+                    {
+                        name: "Cucumber Kiwi Frappe",
+                        price: 169,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            },
+                            {
+                                name: "milk",
+                                options: ["No extra milk", "Regular milk (+19)", "Almond milk (+29)", "Oat milk (+49)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Peach Mango Frappe",
+                        price: 169,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            },
+                            {
+                                name: "milk",
+                                options: ["No extra milk", "Regular milk (+19)", "Almond milk (+29)", "Oat milk (+49)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Vanilla Matcha Frappe",
+                        price: 169,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            },
+                            {
+                                name: "milk",
+                                options: ["No extra milk", "Regular milk (+19)", "Almond milk (+29)", "Oat milk (+49)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Double Choco Chip Frappe",
+                        price: 169,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            },
+                            {
+                                name: "milk",
+                                options: ["No extra milk", "Regular milk (+19)", "Almond milk (+29)", "Oat milk (+49)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Berry Choco Chip Frappe",
+                        price: 169,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            },
+                            {
+                                name: "milk",
+                                options: ["No extra milk", "Regular milk (+19)", "Almond milk (+29)", "Oat milk (+49)"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "sweet-tea": {
+                title: "Sweet and Tea",
+                items: [
+                    {
+                        name: "Black Tea",
+                        price: 89,
+                        options: [
+                            {
+                                name: "add",
+                                options: ["No add-ons", "Add Milk (+29)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Green Tea",
+                        price: 89,
+                        options: [
+                            {
+                                name: "add",
+                                options: ["No add-ons", "Add Honey (+29)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Choco Cream Cake (Slice)",
+                        price: 149,
+                        options: []
+                    },
+                    {
+                        name: "Carrot Cake (Slice)",
+                        price: 149,
+                        options: []
+                    },
+                    {
+                        name: "Frozen Sans Rival (Slice)",
+                        price: 179,
+                        options: []
+                    },
+                    {
+                        name: "Dulce de Leche (Slice)",
+                        price: 179,
+                        options: []
+                    },
+                    {
+                        name: "Salted Egg Cheesecake (Slice)",
+                        price: 179,
+                        options: []
+                    }
+                ]
+            },
+            "rock-salt": {
+                title: "Rock Salt & Cheese",
+                items: [
+                    {
+                        name: "Vanilla Bean Espresso",
+                        price: 129,
+                        options: [
+                            {
+                                name: "temperature",
+                                options: ["HOT", "ICED"]
+                            },
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Iced Blended Vanilla Oreo",
+                        price: 169,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+10)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Matcha Oreo",
+                        price: 149,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Purple Yam Latte Rock Salt",
+                        price: 149,
+                        options: [
+                            {
+                                name: "size",
+                                options: ["Regular", "Upsize (+20)"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "ice-cream": {
+                title: "Ice Cream",
+                description: "By happy endings, available in 8oz tub",
+                items: [
+                    {
+                        name: "Pistachio",
+                        price: 264,
+                        options: []
+                    },
+                    {
+                        name: "Salted Caramel",
+                        price: 264,
+                        options: []
+                    },
+                    {
+                        name: "Speculoos Malt",
+                        price: 264,
+                        options: []
+                    },
+                    {
+                        name: "Mango Float",
+                        price: 249,
+                        options: []
+                    },
+                    {
+                        name: "Cookie Crumble",
+                        price: 249,
+                        options: []
+                    },
+                    {
+                        name: "Malunggay",
+                        price: 249,
+                        options: []
+                    },
+                    {
+                        name: "Baye Baye",
+                        price: 249,
+                        options: []
+                    }
+                ]
+            }
+        };
+
+        // Cart data
+        let cart = [];
+        let cartId = 0;
+
+        // Function to render menu items
+        function renderMenuItems(category) {
+            const menuContent = document.querySelector('.menu-content');
+            const categoryData = menuData[category];
+            
+            menuContent.innerHTML = '';
+            
+            // Add category title and description
+            const categoryTitle = document.createElement('h2');
+            categoryTitle.classList.add('category-title');
+            categoryTitle.textContent = categoryData.title;
+            menuContent.appendChild(categoryTitle);
+            
+            if (categoryData.description) {
+                const categoryDescription = document.createElement('p');
+                categoryDescription.textContent = categoryData.description;
+                menuContent.appendChild(categoryDescription);
+            }
+            
+            // Add menu items
+            categoryData.items.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.classList.add('menu-item');
+                
+                const itemDetails = document.createElement('div');
+                itemDetails.classList.add('item-details');
+                
+                const itemName = document.createElement('div');
+                itemName.classList.add('item-name');
+                itemName.textContent = item.name;
+                itemDetails.appendChild(itemName);
+                
+                if (item.description) {
+                    const itemDescription = document.createElement('div');
+                    itemDescription.classList.add('item-description');
+                    itemDescription.textContent = item.description;
+                    itemDetails.appendChild(itemDescription);
+                }
+                
+                const itemPrice = document.createElement('div');
+                itemPrice.classList.add('item-price');
+                itemPrice.textContent = `₱${item.price.toFixed(2)}`;
+                itemDetails.appendChild(itemPrice);
+                
+                menuItem.appendChild(itemDetails);
+                
+                const itemControls = document.createElement('div');
+                itemControls.classList.add('item-controls');
+                
+                // Add options if any
+                if (item.options && item.options.length > 0) {
+                    const itemOptions = document.createElement('div');
+                    itemOptions.classList.add('item-options');
+                    
+                    item.options.forEach(option => {
+                        const select = document.createElement('select');
+                        select.classList.add('option-select');
+                        select.setAttribute('data-option', option.name);
+                        
+                        option.options.forEach(opt => {
+                            const optElement = document.createElement('option');
+                            let additionalCost = 0;
+                            if (option.additionalCost && option.additionalCost[opt] !== undefined) {
+                                additionalCost = option.additionalCost[opt];
+                            }
+                            optElement.value = JSON.stringify({ name: option.name, value: opt, additionalCost: additionalCost });
+                            optElement.textContent = opt;
+                            select.appendChild(optElement);
+                        });
+                        
+                        itemOptions.appendChild(select);
+                    });
+                    
+                    itemControls.appendChild(itemOptions);
+                }
+
+                // Add to Cart button
+                const addToCartBtn = document.createElement('button');
+                addToCartBtn.textContent = 'Add to Cart';
+                addToCartBtn.addEventListener('click', () => {
+                    // Get selected options
+                    const selectedOptions = {};
+                    if (item.options && item.options.length > 0) {
+                        const selects = itemControls.querySelectorAll('.option-select');
+                        selects.forEach(select => {
+                            selectedOptions[select.getAttribute('data-option')] = select.value;
+                        });
+                    }
+                    // Calculate price with options
+                    let totalPrice = item.price;
+                    for (const optionKey in selectedOptions) {
+                        const optionData = JSON.parse(selectedOptions[optionKey]);
+                        totalPrice += optionData.additionalCost;
+                    }
+                    addToCart(item.name, totalPrice, selectedOptions);
+                });
+
+                itemControls.appendChild(addToCartBtn);
+                menuItem.appendChild(itemControls);
+                menuContent.appendChild(menuItem);
+            });
+        }
+        /**
+         * Adds an item to the cart.
+         * @param {string} name - The name of the item to add.
+         * @param {number} price - The price of the item, including any additional costs from options.
+         * @param {Object} options - An object containing selected options for the item (e.g., size, milk type).
+         * @returns {void} - This function does not return a value.
+         */
+        function addToCart(name, price, options) {
+            const cartItem = {
+                id: cartId++,
+                name,
+                price,
+                options,
+                quantity: 1
+            };
+            
+            cart.push(cartItem);
+            updateCartUI();
+        }
+        /**
+         * Function to update the cart UI.
+         * This function refreshes the cart display by clearing the current items,
+         * adding the updated cart items, calculating the total price, and showing
+         * a message if the cart is empty.
+         */
+        // Function to update cart UI
+                function updateCartUI() {
+                    const cartItemsContainer = document.getElementById('cart-items');
+                    const cartTotalElement = document.querySelector('.cart-total');
+            
+            // Clear cart items
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                const emptyCartMessage = document.createElement('div');
+                emptyCartMessage.classList.add('empty-cart-message');
+                emptyCartMessage.textContent = 'Your cart is empty';
+                cartItemsContainer.appendChild(emptyCartMessage);
+                cartTotalElement.textContent = 'Total: ₱0.00';
+                return;
+            }
+            
+            // Calculate total
+            let total = 0;
+            
+            // Add cart items
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                
+                const itemName = document.createElement('div');
+                itemName.classList.add('cart-item-name');
+                itemName.textContent = item.name;
+                cartItem.appendChild(itemName);
+                
+                // Add options if any
+                const itemOptions = document.createElement('div');
+                itemOptions.classList.add('cart-item-options');
+                let optionsText = '';
+                for (const option in item.options) {
+                    if (optionsText) optionsText += ', ';
+                    optionsText += `${option}: ${item.options[option]}`;
+                }
+                itemOptions.textContent = optionsText || 'No options';
+                cartItem.appendChild(itemOptions);
+                
+                const itemPrice = document.createElement('div');
+                itemPrice.classList.add('cart-item-price');
+                itemPrice.textContent = `₱${item.price.toFixed(2)}`;
+                cartItem.appendChild(itemPrice);
+                
+                const itemQuantity = document.createElement('div');
+                itemQuantity.classList.add('cart-item-quantity');
+                
+                const decreaseBtn = document.createElement('button');
+                decreaseBtn.classList.add('quantity-btn');
+                decreaseBtn.textContent = '-';
+                decreaseBtn.addEventListener('click', () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                    } else {
+                        cart = cart.filter(cartItem => cartItem.id !== item.id);
+                    }
+                    updateCartUI();
+                });
+                
+                const quantityValue = document.createElement('span');
+                quantityValue.classList.add('quantity-value');
+                quantityValue.textContent = item.quantity;
+                
+                const increaseBtn = document.createElement('button');
+                increaseBtn.classList.add('quantity-btn');
+                increaseBtn.textContent = '+';
+                increaseBtn.addEventListener('click', () => {
+                    item.quantity++;
+                    updateCartUI();
+                });
+                
+                itemQuantity.appendChild(decreaseBtn);
+                itemQuantity.appendChild(quantityValue);
+                itemQuantity.appendChild(increaseBtn);
+                cartItem.appendChild(itemQuantity);
+                
+                const itemSubtotal = document.createElement('div');
+                itemSubtotal.classList.add('cart-item-subtotal');
+                const subtotal = item.price * item.quantity;
+                itemSubtotal.textContent = `₱${subtotal.toFixed(2)}`;
+                cartItem.appendChild(itemSubtotal);
+                
+                const removeBtn = document.createElement('div');
+                removeBtn.classList.add('cart-item-remove');
+                removeBtn.textContent = '✕';
+                removeBtn.addEventListener('click', () => {
+                    cart = cart.filter(cartItem => cartItem.id !== item.id);
+                    updateCartUI();
+                });
+                cartItem.appendChild(removeBtn);
+                
+                cartItemsContainer.appendChild(cartItem);
+                
+                total += subtotal;
+            });
+            
+            cartTotalElement.textContent = `Total: ₱${total.toFixed(2)}`;
+        }
+        // Add event listeners to category buttons
+        document.querySelectorAll('.category-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Add active class to clicked button
+                button.classList.add('active');
+                renderMenuItems(button.getAttribute('data-category'));
+            });
+        });
+
+        // Initialize with the first category
+        const firstCategoryButton = document.querySelector('.category-button');
+        if (firstCategoryButton) {
+            firstCategoryButton.classList.add('active');
+            renderMenuItems(firstCategoryButton.getAttribute('data-category'));
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('order-summary-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const confirmOrderBtn = document.querySelector('.confirm-order-btn');
+
+        // Add event listener to checkout button
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            // Check if the cart is empty
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items to proceed with checkout.');
+                return;
+            }
+
+            // Initialize variables for total calculation and order summary
+            let total = 0;
+            let orderSummary = 'Your Order Summary:\n\n';
+
+            // Iterate through the cart to calculate total and build the order summary
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+
+                // Prepare options text if any options are selected
+                let optionsText = '';
+                for (const option in item.options) {
+                    if (optionsText) optionsText += ', ';
+                    optionsText += `${option}: ${item.options[option]}`;
+                }
+
+                // Append item details to the order summary
+                orderSummary += `${item.quantity}x ${item.name}\n`;
+                if (optionsText) orderSummary += `   Options: ${optionsText}\n`;
+                orderSummary += `   Subtotal: ₱${subtotal.toFixed(2)}\n\n`;
+            });
+
+            // Append the total amount to the order summary
+            orderSummary += `Total: ₱${total.toFixed(2)}`;
+
+            // Display the order summary in a modal
+            const modalContent = document.getElementById('order-summary-content');
+            modalContent.textContent = orderSummary;
+            modal.style.display = 'block';
+        });
+
+        // Add an event listener to the close button to hide the modal when clicked
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
+
+        // Add an event listener to the confirm order button
+        if (confirmOrderBtn) {
+            confirmOrderBtn.addEventListener('click', () => {
+                // Display a confirmation message to the user
+                alert('Order confirmed! Thank you for your purchase.');
+
+                // Close the order summary modal
+                modal.style.display = 'none';
+
+                // Clear the cart to reset the order
+                cart = [];
+
+                // Update the cart UI to reflect the cleared cart
+                updateCartUI();
+            });
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert('Your cart is empty.');
+        return;
+    }
+
+    const popup = document.getElementById('checkout-popup');
+    const popupSubtotal = document.getElementById('popup-subtotal');
+    const popupTotal = document.getElementById('popup-total');
+    const popupSummary = document.getElementById('popup-order-summary');
+
+    const deliveryFee = 50;
+    let subtotal = 0;
+    let summaryText = "";
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        summaryText += `<p>${item.quantity}x ${item.name} - ₱${itemTotal.toFixed(2)}</p>`;
+    });
+
+    popupSubtotal.textContent = subtotal.toFixed(2);
+    popupTotal.textContent = (subtotal + deliveryFee).toFixed(2);
+    popupSummary.innerHTML = summaryText;
+
+    popup.style.display = 'block';
+});
+
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const confirmation = document.getElementById('confirmation-message');
+    const popup = document.getElementById('checkout-popup');
+
+    document.getElementById('order-number').textContent = Math.floor(Math.random() * 900000 + 100000);
+
+    popup.style.display = 'none';
+    confirmation.style.display = 'block';
+
+    cart = [];
+    updateCartUI();
+});
+
+// Toggle Admin Panel
+document.getElementById("admin-toggle").addEventListener("click", () => {
+    const panel = document.getElementById("admin-panel");
+    panel.style.display = panel.style.display === "none" ? "block" : "none";
+    populateCategorySelect();
+    renderAdminItems();
+});
+
+function populateCategorySelect() {
+    const select = document.getElementById("admin-category");
+    select.innerHTML = "";
+    Object.keys(menuData).forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = menuData[cat].title;
+        select.appendChild(option);
+    });
+}
+
+// Add / Edit Item Handler
+document.getElementById("admin-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const category = document.getElementById("admin-category").value;
+    const name = document.getElementById("admin-name").value.trim();
+    const description = document.getElementById("admin-description").value.trim();
+    const price = parseFloat(document.getElementById("admin-price").value);
+
+    if (!name || isNaN(price)) return alert("Invalid input");
+
+    const existingItem = menuData[category].items.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.description = description;
+        existingItem.price = price;
+    } else {
+        menuData[category].items.push({ name, description, price, options: [] });
+    }
+
+    renderAdminItems();
+    alert("Item saved!");
+    this.reset();
+});
+
+// Render Items per Category with Edit/Delete
+function renderAdminItems() {
+    const container = document.getElementById("admin-items-list");
+    container.innerHTML = "";
+
+    Object.keys(menuData).forEach(cat => {
+        const catSection = document.createElement("div");
+        catSection.innerHTML = `<h4>${menuData[cat].title}</h4>`;
+
+        menuData[cat].items.forEach((item, index) => {
+            const itemDiv = document.createElement("div");
+            itemDiv.innerHTML = `
+                <b>${item.name}</b> - ₱${item.price} 
+                <button onclick="editMenuItem('${cat}', ${index})">Edit</button>
+                <button onclick="deleteMenuItem('${cat}', ${index})">Delete</button>
+            `;
+            catSection.appendChild(itemDiv);
+        });
+
+        container.appendChild(catSection);
+    });
+}
+
+function editMenuItem(category, index) {
+    const item = menuData[category].items[index];
+    document.getElementById("admin-category").value = category;
+    document.getElementById("admin-name").value = item.name;
+    document.getElementById("admin-description").value = item.description || "";
+    document.getElementById("admin-price").value = item.price;
+    document.getElementById("admin-name").focus();
+}
+
+function deleteMenuItem(category, index) {
+    if (confirm("Are you sure you want to delete this item?")) {
+        menuData[category].items.splice(index, 1);
+        renderAdminItems();
+        alert("Item deleted.");
+    }
+}
+    </script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const isAdmin = sessionStorage.getItem('adminLoggedIn');
+    const adminToggle = document.getElementById('admin-toggle');
+    const adminPanel = document.getElementById('admin-panel');
+
+    if (!isAdmin) {
+        alert('Access denied. Admins only.');
+        window.location.href = 'INDEX.html';
+        return;
+    }
+
+    // Automatically show admin panel and initialize content
+    if (adminPanel && adminToggle) {
+        adminPanel.style.display = 'block';
+        adminToggle.style.display = 'none';
+        populateCategorySelect();
+        renderAdminItems();
+    }
+
+    // Add logout button
+    const logoutBtn = document.createElement('button');
+    logoutBtn.id = 'logoutBtn';
+    logoutBtn.innerText = 'Logout';
+    logoutBtn.style.cssText = 'position:fixed;top:10px;right:10px;padding:10px;background:#8B4513;color:#fff;border:none;border-radius:5px;cursor:pointer;';
+    document.body.appendChild(logoutBtn);
+
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear();
+        window.location.href = 'INDEX.html';
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const isAdmin = sessionStorage.getItem('adminLoggedIn');
+    const adminToggle = document.getElementById('admin-toggle');
+    const adminPanel = document.getElementById('admin-panel');
+
+    if (!isAdmin) {
+        alert('Access denied. Admins only.');
+        window.location.href = 'INDEX.html';
+        return;
+    }
+
+    if (adminPanel && adminToggle) {
+        adminPanel.style.display = 'block';
+        adminToggle.style.display = 'none';
+    }
+
+    const logoutBtn = document.createElement('button');
+    logoutBtn.id = 'logoutBtn';
+    logoutBtn.innerText = 'Logout';
+    logoutBtn.style.cssText = 'position:fixed;top:10px;right:10px;padding:10px;background:#8B4513;color:#fff;border:none;border-radius:5px;cursor:pointer;z-index:9999;';
+    document.body.appendChild(logoutBtn);
+
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear();
+        window.location.href = 'INDEX.html';
+    });
+});
+</script>
+</body>
+</html>
+                            
